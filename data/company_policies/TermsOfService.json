@@ -1,0 +1,48 @@
+{
+  "id": "policy_termsofservice",
+  "title": "Terms of Service",
+  "category": "Company Policies",
+  "overview": "These terms outline the conditions for using PopData Insights' products and services.",
+  "sections": [
+    {
+      "title": "Service Terms",
+      "content": [
+        {
+          "item": "Access to Services",
+          "description": "Users are granted access to population data services based on subscription plans."
+        },
+        {
+          "item": "User Obligations",
+          "description": "Users must comply with all applicable laws and regulations when using our services."
+        }
+      ]
+    },
+    {
+      "title": "Intellectual Property",
+      "content": [
+        {
+          "item": "Data Ownership",
+          "description": "PopData Insights retains ownership of all population data provided through its services."
+        },
+        {
+          "item": "Use of Data",
+          "description": "Users are granted a license to use the data for specific purposes outlined in their agreements."
+        }
+      ]
+    },
+    {
+      "title": "Liability and Disclaimers",
+      "content": [
+        {
+          "item": "Limitations of Liability",
+          "description": "PopData Insights is not liable for any indirect, incidental, or consequential damages."
+        },
+        {
+          "item": "Disclaimer of Warranties",
+          "description": "We provide our services on an 'as is' basis, without warranties of any kind."
+        }
+      ]
+    }
+  ],
+  "last_updated": "2024-08-11"
+}

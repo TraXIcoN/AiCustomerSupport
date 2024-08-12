@@ -1,0 +1,50 @@
+{
+  "id": "doc_index_popdatainsights",
+  "title": "PopData Insights Documentation Index",
+  "category": "Documentation",
+  "subcategory": "Index",
+  "overview": "Welcome to the PopData Insights documentation. This index provides links to detailed information on our population data products and company policies.",
+  "sections": [
+    {
+      "title": "Population Data Products",
+      "content": [
+        {
+          "item": "Global Population Statistics",
+          "description": "Comprehensive data on global population trends, demographics, and projections.",
+          "link": "products/GlobalPopulationStatistics.json"
+        },
+        {
+          "item": "Urbanization Data",
+          "description": "In-depth analysis of urban growth, migration patterns, and city planning.",
+          "link": "products/UrbanizationData.json"
+        },
+        {
+          "item": "Age Distribution Insights",
+          "description": "Detailed information on age demographics, including aging populations and youth trends.",
+          "link": "products/AgeDistributionInsights.json"
+        }
+      ]
+    },
+    {
+      "title": "Company Policies",
+      "content": [
+        {
+          "item": "Privacy Policy",
+          "description": "How we collect, use, and protect your personal and population-related data.",
+          "link": "company_policies/PrivacyPolicy.json"
+        },
+        {
+          "item": "Data Use Policy",
+          "description": "Our policies regarding the use, sharing, and publication of population data.",
+          "link": "company_policies/DataUsePolicy.json"
+        },
+        {
+          "item": "Terms of Service",
+          "description": "The terms and conditions for using our data products and services.",
+          "link": "company_policies/TermsOfService.json"
+        }
+      ]
+    }
+  ],
+  "last_updated": "2024-08-11"
+}

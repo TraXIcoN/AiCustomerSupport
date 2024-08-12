@@ -1,0 +1,57 @@
+{
+  "id": "product_globalpopulationstatistics",
+  "title": "Global Population Statistics",
+  "category": "Population Data Products",
+  "overview": "This dataset provides comprehensive data on global population trends, demographics, and future projections.",
+  "sections": [
+    {
+      "title": "Global Overview",
+      "content": [
+        {
+          "item": "World Population Growth",
+          "description": "Historical and projected global population growth.",
+          "data_points": [
+            { "year": 1950, "population": 2.5 },
+            { "year": 2020, "population": 7.8 },
+            { "year": 2050, "population": 9.7 }
+          ],
+          "unit": "Billions"
+        },
+        {
+          "item": "Population by Continent",
+          "description": "Current population distribution across continents.",
+          "data_points": [
+            { "continent": "Asia", "population": 4.6 },
+            { "continent": "Africa", "population": 1.3 },
+            { "continent": "Europe", "population": 0.7 }
+          ],
+          "unit": "Billions"
+        }
+      ]
+    },
+    {
+      "title": "Demographic Breakdown",
+      "content": [
+        {
+          "item": "Age Distribution",
+          "description": "Population breakdown by age groups globally.",
+          "data_points": [
+            { "age_group": "0-14", "percentage": 26 },
+            { "age_group": "15-64", "percentage": 65 },
+            { "age_group": "65+", "percentage": 9 }
+          ]
+        },
+        {
+          "item": "Gender Ratio",
+          "description": "Global gender ratio by age group.",
+          "data_points": [
+            { "age_group": "0-14", "male": 1.05, "female": 1 },
+            { "age_group": "15-64", "male": 1.02, "female": 1 },
+            { "age_group": "65+", "male": 0.79, "female": 1 }
+          ]
+        }
+      ]
+    }
+  ],
+  "last_updated": "2024-08-11"
+}

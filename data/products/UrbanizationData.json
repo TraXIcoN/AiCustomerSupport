@@ -1,0 +1,59 @@
+{
+  "id": "product_urbanizationdata",
+  "title": "Urbanization Data",
+  "category": "Population Data Products",
+  "overview": "This dataset provides in-depth analysis of urban growth, migration patterns, and city planning globally.",
+  "sections": [
+    {
+      "title": "Urban Growth",
+      "content": [
+        {
+          "item": "Urban Population Growth",
+          "description": "Historical and projected urban population growth.",
+          "data_points": [
+            { "year": 1950, "urban_population": 0.75 },
+            { "year": 2020, "urban_population": 4.2 },
+            { "year": 2050, "urban_population": 6.7 }
+          ],
+          "unit": "Billions"
+        },
+        {
+          "item": "Top 10 Largest Cities",
+          "description": "Population data for the top 10 largest cities by population.",
+          "data_points": [
+            { "city": "Tokyo", "population": 37.4 },
+            { "city": "Delhi", "population": 31.0 },
+            { "city": "Shanghai", "population": 27.0 }
+          ],
+          "unit": "Millions"
+        }
+      ]
+    },
+    {
+      "title": "Migration Patterns",
+      "content": [
+        {
+          "item": "Rural to Urban Migration",
+          "description": "Trends and statistics on rural to urban migration over the past 50 years.",
+          "data_points": [
+            { "year": 1970, "rural_to_urban_migrants": 50 },
+            { "year": 2000, "rural_to_urban_migrants": 90 },
+            { "year": 2020, "rural_to_urban_migrants": 130 }
+          ],
+          "unit": "Millions"
+        },
+        {
+          "item": "International Migration",
+          "description": "Data on international migration trends impacting urbanization.",
+          "data_points": [
+            { "year": 1970, "international_migrants": 80 },
+            { "year": 2000, "international_migrants": 150 },
+            { "year": 2020, "international_migrants": 272 }
+          ],
+          "unit": "Millions"
+        }
+      ]
+    }
+  ],
+  "last_updated": "2024-08-11"
+}

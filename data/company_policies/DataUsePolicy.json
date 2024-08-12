@@ -1,0 +1,48 @@
+{
+  "id": "policy_datause",
+  "title": "Data Use Policy",
+  "category": "Company Policies",
+  "overview": "This policy outlines how PopData Insights uses, shares, and publishes population data.",
+  "sections": [
+    {
+      "title": "Data Usage",
+      "content": [
+        {
+          "item": "Internal Use",
+          "description": "Population data is used internally for analysis, research, and development of new products."
+        },
+        {
+          "item": "External Use",
+          "description": "We may share population data with academic institutions, government agencies, and other partners."
+        }
+      ]
+    },
+    {
+      "title": "Data Publication",
+      "content": [
+        {
+          "item": "Public Reports",
+          "description": "Aggregated population data is published in public reports and research papers."
+        },
+        {
+          "item": "Open Data Access",
+          "description": "Certain datasets are made available to the public under open data licenses."
+        }
+      ]
+    },
+    {
+      "title": "Ethical Considerations",
+      "content": [
+        {
+          "item": "Data Ethics",
+          "description": "We ensure ethical considerations are applied in the use and dissemination of population data."
+        },
+        {
+          "item": "Privacy Protection",
+          "description": "We protect individual privacy in the datasets by anonymizing sensitive information."
+        }
+      ]
+    }
+  ],
+  "last_updated": "2024-08-11"
+}

@@ -1,0 +1,57 @@
+{
+  "id": "product_agedistributioninsights",
+  "title": "Age Distribution Insights",
+  "category": "Population Data Products",
+  "overview": "This dataset provides detailed information on age demographics, including aging populations and youth trends.",
+  "sections": [
+    {
+      "title": "Global Age Distribution",
+      "content": [
+        {
+          "item": "Age Groups",
+          "description": "Percentage distribution of population across different age groups globally.",
+          "data_points": [
+            { "age_group": "0-14", "percentage": 26 },
+            { "age_group": "15-64", "percentage": 65 },
+            { "age_group": "65+", "percentage": 9 }
+          ]
+        },
+        {
+          "item": "Median Age by Region",
+          "description": "Median age of the population in different regions.",
+          "data_points": [
+            { "region": "Europe", "median_age": 42.5 },
+            { "region": "Asia", "median_age": 30.2 },
+            { "region": "Africa", "median_age": 19.7 }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Aging Populations",
+      "content": [
+        {
+          "item": "Population Aged 65 and Over",
+          "description": "Trends in the aging population, with a focus on those aged 65 and over.",
+          "data_points": [
+            { "year": 2000, "population_65+": 0.6 },
+            { "year": 2020, "population_65+": 0.9 },
+            { "year": 2050, "population_65+": 1.6 }
+          ],
+          "unit": "Billions"
+        },
+        {
+          "item": "Life Expectancy Trends",
+          "description": "Historical and projected trends in life expectancy.",
+          "data_points": [
+            { "year": 1950, "life_expectancy": 48 },
+            { "year": 2020, "life_expectancy": 73 },
+            { "year": 2050, "life_expectancy": 77 }
+          ],
+          "unit": "Years"
+        }
+      ]
+    }
+  ],
+  "last_updated": "2024-08-11"
+}

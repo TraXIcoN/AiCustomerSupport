@@ -1,0 +1,48 @@
+{
+  "id": "policy_privacy",
+  "title": "Privacy Policy",
+  "category": "Company Policies",
+  "overview": "This document outlines how PopData Insights collects, uses, and protects personal and population-related data.",
+  "sections": [
+    {
+      "title": "Data Collection",
+      "content": [
+        {
+          "item": "Personal Information",
+          "description": "We collect personal information such as names, email addresses, and demographic details."
+        },
+        {
+          "item": "Population Data",
+          "description": "We collect and process population data from various public and proprietary sources."
+        }
+      ]
+    },
+    {
+      "title": "Data Use",
+      "content": [
+        {
+          "item": "Purpose of Use",
+          "description": "Personal and population data is used to provide insights, services, and products."
+        },
+        {
+          "item": "Data Sharing",
+          "description": "Data may be shared with third-party partners for research and analysis purposes."
+        }
+      ]
+    },
+    {
+      "title": "Data Protection",
+      "content": [
+        {
+          "item": "Security Measures",
+          "description": "We implement security measures to protect personal and population data."
+        },
+        {
+          "item": "User Rights",
+          "description": "Users have the right to access, correct, or delete their personal information."
+        }
+      ]
+    }
+  ],
+  "last_updated": "2024-08-11"
+}
