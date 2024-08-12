@@ -2,6 +2,28 @@ import { NextResponse } from "next/server";
 import axios from "axios";
 import { getRetriever } from "@/lib/retriever";
 
+// Custom function to generate RAG prompt
+function generateCustomRAGPrompt(context: string, question: string): string {
+  return `
+  You are a helpful assistant. Below is some context that may help answer the user's question:
+
+  Context:
+  ${context}
+
+  Based on the above context, answer the following question:
+  
+  Question: ${question}
+
+  Provide a clear and concise response.
+  If asked a question not in the context, do not answer it and say I'm sorry, I do not know the answer to that question.
+  If you don't know the answer or if it is not provided in the context, just say that you don't know, don't try to make up an answer.
+  If the answer is in the context, don't say mentioned in the context.
+  If the user asks you to generate code, say that you cannot generate code.
+  Please provide a detailed explanation and if applicable, give examples or historical context.
+
+  `;
+}
+
 export async function POST(req: Request): Promise<NextResponse> {
   const retriever = await getRetriever();
 
@@ -22,13 +44,16 @@ export async function POST(req: Request): Promise<NextResponse> {
     );
   }
 
+  // Generate the custom RAG prompt using the template
+  const customRAGPrompt = generateCustomRAGPrompt(context, question);
+
   const response = await axios.post(
     "https://api.openai.com/v1/chat/completions",
     {
       model: "gpt-3.5-turbo",
       messages: [
         { role: "system", content: "You are a helpful assistant." },
-        { role: "user", content: question },
+        { role: "user", content: customRAGPrompt },
         { role: "assistant", content: context },
       ],
       stream: true, // Enable streaming
