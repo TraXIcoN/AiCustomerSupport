@@ -10,6 +10,8 @@ import {
   Toolbar,
   IconButton,
   CircularProgress,
+  Grid,
+  useMediaQuery,
 } from "@mui/material";
 import React, { useState, useRef, useEffect } from "react";
 import ReactMarkdown from "react-markdown";
@@ -27,9 +29,7 @@ export default function Home() {
   const [messages, setMessages] = useState<Message[]>([
     {
       role: "assistant",
-      content: `Hi ${localStorage.getItem(
-        "username"
-      )}! I'm the PopData support assistant. How can I help you today?`,
+      content: `Hi ! I'm the PopData support assistant. How can I help you today?`,
     },
   ]);
 
@@ -39,6 +39,7 @@ export default function Home() {
 
   const messagesEndRef = useRef<HTMLDivElement | null>(null);
   const router = useRouter();
+  const isSmallScreen = useMediaQuery("(max-width: 600px)");
 
   useEffect(() => {
     if (typeof window !== "undefined") {
@@ -58,6 +59,10 @@ export default function Home() {
   useEffect(() => {
     scrollToBottom();
   }, [messages]);
+
+  useEffect(() => {
+    localStorage;
+  }, []);
 
   const sendMessage = async (message: string) => {
     if (!message.trim() || isLoading) return;
@@ -153,99 +158,184 @@ export default function Home() {
     >
       <AppBar position="static">
         <Toolbar>
-          <IconButton
-            edge="start"
-            color="inherit"
-            aria-label="menu"
-            sx={{ mr: 2 }}
+          <Typography
+            variant="h6"
+            component="div"
+            sx={{
+              flexGrow: 1,
+              fontSize: {
+                xs: "1rem", // Font size for extra-small screens
+                sm: "1.25rem", // Font size for small screens
+                md: "1.5rem", // Font size for medium screens and above
+              },
+            }}
           >
-            <MenuIcon />
-          </IconButton>
-          <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
             PopData Virtual Assistant
           </Typography>
+
           {username && (
-            <Typography variant="body1" component="div">
+            <Typography
+              variant="body1"
+              component="div"
+              sx={{
+                fontSize: {
+                  xs: "0.8rem", // Font size for extra-small screens
+                  sm: "1rem", // Font size for small screens
+                  md: "1.25rem", // Font size for medium screens and above
+                },
+              }}
+            >
               Welcome, {username}!
             </Typography>
           )}
         </Toolbar>
       </AppBar>
+
       <Stack
-        direction={"column"}
-        width="500px"
-        height="700px"
-        border="1px solid"
-        borderColor="primary.main"
-        p={2}
-        spacing={3}
+        direction={isSmallScreen ? "column" : "row"}
+        width="90%"
+        height="80%"
+        spacing={2}
+        justifyContent="center"
+        alignItems="center"
         mt={2}
-        bgcolor="background.paper"
-        boxShadow={3}
-        borderRadius={2}
       >
+        {/* First Stack: Chat Interface */}
         <Stack
           direction={"column"}
-          spacing={2}
-          flexGrow={1}
-          overflow="auto"
-          maxHeight="100%"
+          width={isSmallScreen ? "100%" : "50%"}
+          height="100%"
+          border="1px solid"
+          borderColor="primary.main"
+          p={2}
+          spacing={3}
+          bgcolor="background.paper"
+          boxShadow={3}
+          borderRadius={2}
+          overflow="hidden"
         >
-          {messages.map((message, index) => (
-            <Box
-              key={index}
-              display="flex"
-              flexDirection="column"
-              alignItems={
-                message.role === "assistant" ? "flex-start" : "flex-end"
-              }
-            >
-              <Typography variant="caption" color="textSecondary">
-                {message.role === "assistant" ? "AI Assistant" : "User"}
-              </Typography>
-              <Box
-                bgcolor={
-                  message.role === "assistant" ? "primary.main" : "grey.500"
-                }
-                color="white"
-                borderRadius={2}
-                p={2}
-                maxWidth="75%"
-              >
-                <ReactMarkdown>
-                  {sanitizeMarkdown(message.content)}
-                </ReactMarkdown>
-              </Box>
-            </Box>
-          ))}
-          <div ref={messagesEndRef} />
-        </Stack>
-        <Stack direction="row" spacing={2}>
-          <TextField
-            label="Message"
-            fullWidth
-            value={message}
-            onChange={(e) => setMessage(e.target.value)}
-            onKeyDown={handleKeyPress}
-            disabled={isLoading}
-          />
-          <Button
-            variant="contained"
-            onClick={() => sendMessage(message)}
-            disabled={isLoading}
-            startIcon={
-              isLoading ? <CircularProgress size={16} /> : <SendIcon />
-            }
-            sx={{
-              transition: "transform 0.3s, box-shadow 0.3s",
-              "&:hover": {
-                transform: "scale(1.1)",
-                boxShadow: "0 0 10px rgba(33, 150, 243, 0.5)",
-              },
-            }}
+          <Stack
+            direction={"column"}
+            spacing={2}
+            flexGrow={1}
+            overflow="auto"
+            maxHeight="100%"
           >
-            {isLoading ? "Sending..." : "Send"}
-          </Button>
+            {messages.map((message, index) => (
+              <Box
+                key={index}
+                display="flex"
+                flexDirection="column"
+                alignItems={
+                  message.role === "assistant" ? "flex-start" : "flex-end"
+                }
+              >
+                <Typography variant="caption" color="textSecondary">
+                  {message.role === "assistant" ? "AI Assistant" : "User"}
+                </Typography>
+                <Box
+                  bgcolor={
+                    message.role === "assistant" ? "primary.main" : "grey.500"
+                  }
+                  color="white"
+                  borderRadius={2}
+                  p={2}
+                  maxWidth="75%"
+                >
+                  <ReactMarkdown>
+                    {sanitizeMarkdown(message.content)}
+                  </ReactMarkdown>
+                </Box>
+              </Box>
+            ))}
+            <div ref={messagesEndRef} />
+          </Stack>
+          <Stack direction="row" spacing={2}>
+            <TextField
+              label="Message"
+              fullWidth
+              value={message}
+              onChange={(e) => setMessage(e.target.value)}
+              onKeyDown={handleKeyPress}
+              disabled={isLoading}
+            />
+            <Button
+              variant="contained"
+              onClick={() => sendMessage(message)}
+              disabled={isLoading}
+              startIcon={
+                isLoading ? <CircularProgress size={16} /> : <SendIcon />
+              }
+              sx={{
+                transition: "transform 0.3s, box-shadow 0.3s",
+                "&:hover": {
+                  transform: "scale(1.1)",
+                  boxShadow: "0 0 10px rgba(33, 150, 243, 0.5)",
+                },
+              }}
+            >
+              {isLoading ? "Sending..." : "Send"}
+            </Button>
+          </Stack>
+        </Stack>
+
+        {/* Second Stack: Additional Content */}
+        <Stack
+          direction={"column"}
+          width={isSmallScreen ? "100%" : "50%"}
+          height="100%"
+          p={2}
+          spacing={2}
+          bgcolor="background.paper"
+          boxShadow={3}
+          borderRadius={2}
+        >
+          {/* Upper Half: Sample Queries */}
+          <Box
+            flexGrow={1}
+            border="1px solid"
+            borderColor="primary.main"
+            p={2}
+            borderRadius={2}
+            overflow="auto"
+          >
+            <Typography variant="h6" gutterBottom>
+              Sample Queries:
+            </Typography>
+            <Typography variant="body1">
+              - What is the current world population?
+            </Typography>
+            <Typography variant="body1">
+              - Show me population growth trends for the last decade.
+            </Typography>
+            <Typography variant="body1">
+              - How does the population density vary across continents?
+            </Typography>
+            <Typography variant="body1">
+              - What are the top 10 most populous countries?
+            </Typography>
+          </Box>
+
+          {/* Lower Half: Description */}
+          <Box
+            flexGrow={1}
+            border="1px solid"
+            borderColor="primary.main"
+            p={2}
+            borderRadius={2}
+            overflow="auto"
+          >
+            <Typography variant="h6" gutterBottom>
+              Description:
+            </Typography>
+            <Typography variant="body1">
+              The current world population is constantly changing and is
+              estimated to be over 8 billion as of 2024. Understanding
+              population dynamics is crucial for planning and policy-making.
+              Explore more about the world's population statistics, trends, and
+              projections here.
+            </Typography>
+          </Box>
         </Stack>
       </Stack>
     </Box>
