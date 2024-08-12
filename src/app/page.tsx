@@ -16,29 +16,40 @@ import ReactMarkdown from "react-markdown";
 import DOMPurify from "isomorphic-dompurify";
 import MenuIcon from "@mui/icons-material/Menu";
 import SendIcon from "@mui/icons-material/Send";
+import { useRouter } from "next/navigation";
 
 type Message = {
   role: "assistant" | "user";
   content: string;
 };
 
-interface SetMessages {
-  (messages: (prevMessages: Message[]) => Message[]): void;
-}
-
 export default function Home() {
   const [messages, setMessages] = useState<Message[]>([
     {
       role: "assistant",
-      content:
-        "Hi! I'm the PopData support assistant. How can I help you today?",
+      content: `Hi ${localStorage.getItem(
+        "username"
+      )}! I'm the PopData support assistant. How can I help you today?`,
     },
   ]);
 
   const [message, setMessage] = useState<string>("");
   const [isLoading, setIsLoading] = useState<boolean>(false);
+  const [username, setUsername] = useState<string | null>(null);
 
   const messagesEndRef = useRef<HTMLDivElement | null>(null);
+  const router = useRouter();
+
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      const storedUsername = localStorage.getItem("username");
+      if (!storedUsername) {
+        router.push("/login"); // Redirect to login if user is not logged in
+      } else {
+        setUsername(storedUsername);
+      }
+    }
+  }, []);
 
   const scrollToBottom = () => {
     messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
@@ -153,6 +164,11 @@ export default function Home() {
           <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
             PopData Virtual Assistant
           </Typography>
+          {username && (
+            <Typography variant="body1" component="div">
+              Welcome, {username}!
+            </Typography>
+          )}
         </Toolbar>
       </AppBar>
       <Stack
