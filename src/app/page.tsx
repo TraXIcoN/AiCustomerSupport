@@ -29,7 +29,8 @@ export default function Home() {
   const [messages, setMessages] = useState<Message[]>([
     {
       role: "assistant",
-      content: `Hi ! I'm the PopData support assistant. How can I help you today?`,
+      content:
+        "Hi ! I'm the PopData support assistant. How can I help you today?",
     },
   ]);
 
@@ -332,8 +333,8 @@ export default function Home() {
               The current world population is constantly changing and is
               estimated to be over 8 billion as of 2024. Understanding
               population dynamics is crucial for planning and policy-making.
-              Explore more about the world's population statistics, trends, and
-              projections here.
+              Explore more about the world&apos;s population statistics, trends,
+              and projections here.
             </Typography>
           </Box>
         </Stack>
